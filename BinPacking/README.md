@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <img src="https://img.icons8.com/android/96/000000/truck.png" alt="Bin Packing" width="400">
+  <img src="https://img.icons8.com/android/96/000000/truck.png" alt="Bin Packing" width="100">
 </h1>
 
 <h2 align="center">Bin Packing Experiments</h2>

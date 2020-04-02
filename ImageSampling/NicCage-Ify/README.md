@@ -1,9 +1,8 @@
 <h1 align="center">
   <br>
-  <img src="https://github.com/Templarian/MaterialDesign/blob/e42f3f41dd46bc033f11c0e5eed7fb742af6e74e/svg/truck-delivery.svg" alt="Bin Packing" width="400">
+  <img src="https://img.icons8.com/ios-filled/100/000000/door-opened.png" alt="NicCage-Ify" width="100">
 </h1>
-
-<h2 align="center">NicCage-Ify</h2>
+<img src=""/>
 
 <p align="center">
   <a href="#description">Overview</a> •

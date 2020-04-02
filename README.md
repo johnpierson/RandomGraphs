@@ -7,7 +7,7 @@
 
 <p align="center">
   <a href="#description">Overview</a> •
-  <a href="#graphs">Graphs</a> •
+  <a href="#modules">Graphs</a> •
 </p>
 
 ## Description
