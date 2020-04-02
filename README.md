@@ -16,7 +16,7 @@ This repo hosts all the random stuff I work on from time to time.
 ## Modules
 * [Bin Packing](https://github.com/johnpierson/RandomGraphs/tree/master/BinPacking)
   - What if you needed to calculate how many vans to move out of the sample model? Well don't worry I figured it out for you.
-* [NicCage-Ify](https://github.com/johnpierson/RandomGraphs/tree/master/NicCage-Ify)
+* [Image Sampling](https://github.com/johnpierson/RandomGraphs/tree/master/ImageSampling)
   - Every wanted to create an image out of 10,000 Revit doors? Well, here it is.
 * [PathOfTravel](https://github.com/johnpierson/RandomGraphs/tree/master/PathOfTravel)
   - Where is the nearest toilet?
