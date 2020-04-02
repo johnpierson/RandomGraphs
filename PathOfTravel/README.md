@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <img src="https://img.icons8.com/ios-filled/100/000000/hard-to-find.png" alt="PathOfTravel" width="400">
+  <img src="https://img.icons8.com/ios-filled/100/000000/hard-to-find.png" alt="PathOfTravel" width="100">
 </h1>
 
 <h2 align="center">Path of Travel Workflows</h2>
