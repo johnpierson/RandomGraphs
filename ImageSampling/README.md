@@ -15,5 +15,5 @@ Image sampling is a fun thing. You can read values from an image with Dynamo and
 
 ## Graphs
 This section contains bin packing messes.
-* [NicCage-Ify]()
+* [NicCage-Ify](https://github.com/johnpierson/RandomGraphs/tree/master/ImageSampling/NicCage-Ify)
   - Want to make doors open to reflect an image of Nicholas Cage. This does that.
