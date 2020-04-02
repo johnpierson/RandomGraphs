@@ -1,9 +1,7 @@
 <h1 align="center">
   <br>
-  <img src="https://img.icons8.com/ios-filled/100/000000/door-opened.png" alt="NicCage-Ify" width="100">
+  <img src="https://img.icons8.com/ios-filled/100/000000/image.png" alt="NicCage-Ify" width="100">
 </h1>
-<img src=""/>
-
 <p align="center">
   <a href="#description">Overview</a> •
   <a href="#graphs">Graphs</a> •
