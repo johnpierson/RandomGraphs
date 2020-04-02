@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <img src="<img src="https://img.icons8.com/ios-filled/50/000000/workflow.png"/>" alt="Workflows" width="400">
+  <img src="https://img.icons8.com/ios-filled/50/000000/workflow.png" alt="Workflows" width="400">
 </h1>
 
 <h2 align="center">a place for my random workflows I share from time to time.</h2>
