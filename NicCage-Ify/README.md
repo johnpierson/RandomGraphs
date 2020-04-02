@@ -1,9 +1,9 @@
 <h1 align="center">
   <br>
-  <img src="https://img.icons8.com/android/96/000000/truck.png" alt="Bin Packing" width="400">
+  <img src="https://github.com/Templarian/MaterialDesign/blob/e42f3f41dd46bc033f11c0e5eed7fb742af6e74e/svg/truck-delivery.svg" alt="Bin Packing" width="400">
 </h1>
 
-<h2 align="center">Bin Packing Experiments</h2>
+<h2 align="center">NicCage-Ify</h2>
 
 <p align="center">
   <a href="#description">Overview</a> •

@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <img src="https://github.com/Templarian/MaterialDesign/blob/e42f3f41dd46bc033f11c0e5eed7fb742af6e74e/svg/exit-run.svg" alt="AU" width="400">
+  <img src="https://img.icons8.com/ios-filled/100/000000/hard-to-find.png" alt="PathOfTravel" width="400">
 </h1>
 
 <h2 align="center">Path of Travel Workflows</h2>
