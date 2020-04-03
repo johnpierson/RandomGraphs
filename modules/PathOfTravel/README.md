@@ -15,6 +15,6 @@ Path of Travel was introduced in Revit 2020, and while it isn't perfect. It is f
 
 ## Graphs
 This section contains path of travel experiments.
-* [Closest Exterior Door](https://github.com/johnpierson/RandomGraphs/blob/master/PathOfTravel/PathOfTravel_PointToExteriorDoors.dyn)
+* [Closest Exterior Door](https://github.com/johnpierson/RandomGraphs/blob/master/PathOfTravel/NearestExteriorDoor/PathOfTravel_PointToExteriorDoors.dyn)
   - Idea came from the Dynamo forum.
   - https://forum.dynamobim.com/t/calculate-longest-exit-distance/45028/7

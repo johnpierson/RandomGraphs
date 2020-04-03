@@ -11,7 +11,7 @@
 </p>
 
 ## Description
-Image sampling is a fun thing. You can read values from an image with Dynamo and use that to drive parameters or geometry.
+Image sampling is a fun thing. You can read values from an image and use that to drive parameters or geometry.
 
 ## Graphs
 This section contains bin packing messes.
