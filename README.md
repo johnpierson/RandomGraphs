@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <img src="https://img.icons8.com/ios-filled/100/000000/workflow.png" alt="Workflows" width="100">
+  <img src="https://github.com/johnpierson/RandomGraphs/blob/master/resources/dynamoGraphsCrap.png" alt="Workflows" width="400">
 </h1>
 
 <h2 align="center">a place for my random workflows I share from time to time.</h2>
