@@ -1,0 +1,374 @@
+{
+  "Uuid": "8edbfc12-cd81-4671-b500-fe3cfbecec24",
+  "IsCustomNode": false,
+  "Description": null,
+  "Name": "revitRailingPostStuff",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "import clr\r\n\r\nclr.AddReference('RevitAPI')\r\nfrom Autodesk.Revit.DB import *\r\nfrom Autodesk.Revit.DB.Structure import *\r\n\r\nclr.AddReference('RevitAPIUI')\r\nfrom Autodesk.Revit.UI import *\r\n\r\nclr.AddReference('System')\r\nfrom System.Collections.Generic import List\r\n\r\nclr.AddReference('RevitNodes')\r\nimport Revit\r\nclr.ImportExtensions(Revit.GeometryConversion)\r\nclr.ImportExtensions(Revit.Elements)\r\n\r\nclr.AddReference('RevitServices')\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\nfrom RevitServices.Transactions import TransactionManager\r\n\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\nuidoc=DocumentManager.Instance.CurrentUIApplication.ActiveUIDocument\r\n\r\n#Preparing input from dynamo to revit\r\nelement = UnwrapElement(IN[0])\r\n\r\nbalusterPlacement = element.BalusterPlacement\r\npostPattern = balusterPlacement.PostPattern\r\nstartPost = postPattern.StartPost \r\ncornerPost = postPattern.CornerPost\r\nendPost = postPattern.EndPost \r\n\r\n#Do some action in a Transaction\r\nTransactionManager.Instance.EnsureInTransaction(doc)\r\n\r\nTransactionManager.Instance.TransactionTaskDone()\r\n\r\nOUT = doc.GetElement(startPost.BalusterFamilyId),doc.GetElement(cornerPost.BalusterFamilyId),doc.GetElement(endPost.BalusterFamilyId)",
+      "VariableInputPorts": true,
+      "Id": "720916f5210a492bb7265dc52673c713",
+      "Inputs": [
+        {
+          "Id": "98339276039b4430b097680347fce88f",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "9423322183f3426997bebbabc994b410",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded IronPython script."
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "35002d22-4689-427d-a676-389f8f5f3b55-00066298"
+      ],
+      "Id": "beaffd6e0f834a70b7b95834b2094f51",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "6bf48b01a0f14b8d87b6d562322ae1e0",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.ElementType",
+      "Id": "cc7ccea22e984102a33f9e32f7438225",
+      "Inputs": [
+        {
+          "Id": "14f38b497c4a4489bf135f8b3c99dfde",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "73ffaf33d9974a2a9eb60bc8087ebc1b",
+          "Name": "ElementType",
+          "Description": "Element Type or Null.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns the FamilyType for this Element. Returns null if the Element cannot have a FamilyType assigned.\n\nElement.ElementType: Element"
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.FamilyTypes, DSRevitNodesUI",
+      "SelectedIndex": 46,
+      "SelectedString": "M_Baluster - Round:25mm",
+      "NodeType": "ExtensionNode",
+      "Id": "3b8532f938d94318b722ec968cf4eb3f",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "3f0ebe14064f4bea81b18b90edaf498e",
+          "Name": "Family Type",
+          "Description": "The selected Family Type",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All family types available in the document."
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "import clr\r\n\r\nclr.AddReference('RevitAPI')\r\nfrom Autodesk.Revit.DB import *\r\nfrom Autodesk.Revit.DB.Structure import *\r\n\r\nclr.AddReference('RevitAPIUI')\r\nfrom Autodesk.Revit.UI import *\r\n\r\nclr.AddReference('System')\r\nfrom System.Collections.Generic import List\r\n\r\nclr.AddReference('RevitNodes')\r\nimport Revit\r\nclr.ImportExtensions(Revit.GeometryConversion)\r\nclr.ImportExtensions(Revit.Elements)\r\n\r\nclr.AddReference('RevitServices')\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\nfrom RevitServices.Transactions import TransactionManager\r\n\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\nuidoc=DocumentManager.Instance.CurrentUIApplication.ActiveUIDocument\r\n\r\ndef setPost(i,postPattern):\r\n        switcher={\r\n                0:postPattern.StartPost,\r\n                1:postPattern.CornerPost,\r\n                2: postPattern.EndPost\r\n             }\r\n\treturn switcher.get(i,postPattern.StartPost)\r\n\r\n#Preparing input from dynamo to revit\r\nrailingType = UnwrapElement(IN[0])\r\n\r\nbalusterType = IN[1]\r\n#choice of start[1], corner[2], or end[3]\r\nchoice = IN[2]\r\n\r\nbalusterPlacement = railingType.BalusterPlacement\r\npostPattern = balusterPlacement.PostPattern\r\n\r\n#Set the new post type\r\nTransactionManager.Instance.EnsureInTransaction(doc)\r\ntry:\r\n\tsetPost(choice,postPattern).BalusterFamilyId = ElementId(balusterType.Id)\r\n\tresult = \"Success!\"\r\nexcept:\r\n\tresult = \"Failed, cannot change baluster type to selected type\"\r\nTransactionManager.Instance.TransactionTaskDone()\r\n\r\nOUT = result",
+      "VariableInputPorts": true,
+      "Id": "5d45dd18e3da47128253badfd4e5db62",
+      "Inputs": [
+        {
+          "Id": "8ea8152d22a94a1d8cd229935ad79df8",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "32c5888ecd2a495ea496efdf397bf3c9",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a3a4b84e19634f52a95e4777556b7bc6",
+          "Name": "IN[2]",
+          "Description": "Input #2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "61c8e968839f4a17a6e5e48a0b03899b",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded IronPython script."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.IntegerSlider, CoreNodeModels",
+      "NodeType": "NumberInputNode",
+      "NumberType": "Integer",
+      "InputValue": 2,
+      "MaximumValue": 2,
+      "MinimumValue": 0,
+      "StepValue": 1,
+      "Id": "7882ba93dee843769829ee6ad587833b",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "3f0621ed39aa4dcf842f6e5a884c4ed9",
+          "Name": "",
+          "Description": "Int32",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A slider that produces integer values."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "6bf48b01a0f14b8d87b6d562322ae1e0",
+      "End": "14f38b497c4a4489bf135f8b3c99dfde",
+      "Id": "4cad63c752874b9d8c1bd17528309346"
+    },
+    {
+      "Start": "73ffaf33d9974a2a9eb60bc8087ebc1b",
+      "End": "98339276039b4430b097680347fce88f",
+      "Id": "d0c617b048624349a914ae29ce7d0164"
+    },
+    {
+      "Start": "73ffaf33d9974a2a9eb60bc8087ebc1b",
+      "End": "8ea8152d22a94a1d8cd229935ad79df8",
+      "Id": "5edf1c8e56444f5fab6a531edb98bf03"
+    },
+    {
+      "Start": "3f0ebe14064f4bea81b18b90edaf498e",
+      "End": "32c5888ecd2a495ea496efdf397bf3c9",
+      "Id": "6a01ffa94e844f02a122fc28ceb88649"
+    },
+    {
+      "Start": "3f0621ed39aa4dcf842f6e5a884c4ed9",
+      "End": "a3a4b84e19634f52a95e4777556b7bc6",
+      "Id": "df5a3f0763284c97b16daeeafd676103"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.5.2.7915",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "python-GetPostTypes",
+        "Id": "720916f5210a492bb7265dc52673c713",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 581.87145448379806,
+        "Y": 501.45882382515197
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Select Model Element",
+        "Id": "beaffd6e0f834a70b7b95834b2094f51",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -283.45598139224012,
+        "Y": 592.17457498225758
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Element.ElementType",
+        "Id": "cc7ccea22e984102a33f9e32f7438225",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -34.192884560070127,
+        "Y": 592.17457498225758
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "New Baluster Type",
+        "Id": "3b8532f938d94318b722ec968cf4eb3f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -48.921980680878221,
+        "Y": 811.01963238318763
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "python- SetPostType",
+        "Id": "5d45dd18e3da47128253badfd4e5db62",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 590.28387965706645,
+        "Y": 821.79758286318372
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Start = 0, Corner = 1, End = 2",
+        "Id": "7882ba93dee843769829ee6ad587833b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -86.921980680878221,
+        "Y": 904.16555236529859
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "99d6792b0dd044a3bde1241b8ee95075",
+        "Title": "Select single railing instance (Also converts to railing type)",
+        "Nodes": [
+          "beaffd6e0f834a70b7b95834b2094f51",
+          "cc7ccea22e984102a33f9e32f7438225"
+        ],
+        "Left": -293.45598139224012,
+        "Top": 524.17457498225758,
+        "Width": 517.26309683217,
+        "Height": 187.0,
+        "FontSize": 24.0,
+        "InitialTop": 592.17457498225758,
+        "InitialHeight": 149.0,
+        "TextblockHeight": 58.0,
+        "Background": "#FFB0C4DE"
+      },
+      {
+        "Id": "b7be50d7eece46f0b2faff89abb293ad",
+        "Title": "Select baluster type and which post you want to tweak",
+        "Nodes": [
+          "3b8532f938d94318b722ec968cf4eb3f",
+          "7882ba93dee843769829ee6ad587833b"
+        ],
+        "Left": -96.921980680878221,
+        "Top": 743.01963238318763,
+        "Width": 319.0,
+        "Height": 229.14591998211097,
+        "FontSize": 24.0,
+        "InitialTop": 811.01963238318763,
+        "InitialHeight": 191.14591998211097,
+        "TextblockHeight": 58.0,
+        "Background": "#FFB0C4DE"
+      },
+      {
+        "Id": "0c562836cfde4b4cb659a39b8120c6a9",
+        "Title": "Changes the post in a Revit transaction",
+        "Nodes": [
+          "5d45dd18e3da47128253badfd4e5db62"
+        ],
+        "Left": 580.28387965706645,
+        "Top": 725.79758286318372,
+        "Width": 159.0,
+        "Height": 241.0,
+        "FontSize": 24.0,
+        "InitialTop": 821.79758286318372,
+        "InitialHeight": 175.0,
+        "TextblockHeight": 86.0,
+        "Background": "#FFFFA07A"
+      },
+      {
+        "Id": "bd4b0129935c4e718b649ba90c74fade",
+        "Title": "Reports the post (if you don't want to change)",
+        "Nodes": [
+          "720916f5210a492bb7265dc52673c713"
+        ],
+        "Left": 571.87145448379806,
+        "Top": 376.45882382515197,
+        "Width": 164.0,
+        "Height": 218.0,
+        "FontSize": 24.0,
+        "InitialTop": 501.45882382515197,
+        "InitialHeight": 123.0,
+        "TextblockHeight": 115.0,
+        "Background": "#FF87CEFA"
+      }
+    ],
+    "X": 446.66585459165719,
+    "Y": -69.932282853801212,
+    "Zoom": 0.52486542792448365
+  }
+}
