@@ -572,66 +572,6 @@
     },
     {
       "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
-      "FunctionSignature": "9dba20d5-ee3a-4fad-ae88-9b859fff9cb7",
-      "FunctionType": "Graph",
-      "NodeType": "FunctionNode",
-      "Id": "d67d01114d3342bc960da62f92ee7087",
-      "Inputs": [
-        {
-          "Id": "e821d592aacf4b31a4fc10489df618f9",
-          "Name": "refresh",
-          "Description": "bool\nDefault value : false",
-          "UsingDefaultValue": true,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        },
-        {
-          "Id": "8e8f1492d7194ba9a2b87e83ab903ee3",
-          "Name": "category",
-          "Description": "var[]..[]",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "b50d2b793bc44e5eafe549d396234b2d",
-          "Name": "elements",
-          "Description": "return value",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "This allows a multiple selection of elements of specified category."
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
-      "NodeType": "CodeBlockNode",
-      "Code": "\"Furniture\";",
-      "Id": "1baaf968ed8844969ca9135781660626",
-      "Inputs": [],
-      "Outputs": [
-        {
-          "Id": "c9d8690fabfe4ce59ad2c77eff32534c",
-          "Name": "",
-          "Description": "Value of expression at line 1",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Disabled",
-      "Description": "Allows for DesignScript code to be authored directly"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
       "FunctionSignature": "ecce77dc-1290-438e-a056-970b256fd553",
       "FunctionType": "Graph",
       "NodeType": "FunctionNode",
@@ -1295,6 +1235,41 @@
       ],
       "Replication": "Auto",
       "Description": "Create a OverrideGraphicSettings Element.\n\nOverrideGraphicSettings.ByProperties (cutFillColor: Color = null, projectionFillColor: Color = null, cutLineColor: Color = null, projectionLineColor: Color = null, cutFillPattern: FillPatternElement = null, projectionFillPattern: FillPatternElement = null, cutLinePattern: LinePatternElement = null, projectionLinePattern: LinePatternElement = null, cutLineWeight: int = -1, projectionLineWeight: int = -1, transparency: int = -1, detailLevel: string = \"Undefined\", halftone: bool = false): OverrideGraphicSettings"
+    },
+    {
+      "ConcreteType": "GenerativeDesign.DSModelDragFamilyInstanceSelection, GenerativeDesignRevitNodes",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "68b5e6d1-3275-40e2-9043-4b72a1f0aa12-0002c046",
+        "68b5e6d1-3275-40e2-9043-4b72a1f0aa12-0002c088",
+        "68b5e6d1-3275-40e2-9043-4b72a1f0aa12-0002c0c0",
+        "68b5e6d1-3275-40e2-9043-4b72a1f0aa12-0002c139",
+        "68b5e6d1-3275-40e2-9043-4b72a1f0aa12-0002c13e",
+        "68b5e6d1-3275-40e2-9043-4b72a1f0aa12-0002c143",
+        "68b5e6d1-3275-40e2-9043-4b72a1f0aa12-0002c154",
+        "68b5e6d1-3275-40e2-9043-4b72a1f0aa12-0002c159",
+        "68b5e6d1-3275-40e2-9043-4b72a1f0aa12-0002c15e",
+        "68b5e6d1-3275-40e2-9043-4b72a1f0aa12-0002c165",
+        "68b5e6d1-3275-40e2-9043-4b72a1f0aa12-0002c16a",
+        "68b5e6d1-3275-40e2-9043-4b72a1f0aa12-0002c176",
+        "68b5e6d1-3275-40e2-9043-4b72a1f0aa12-0002c17b",
+        "68b5e6d1-3275-40e2-9043-4b72a1f0aa12-0002c187",
+        "68b5e6d1-3275-40e2-9043-4b72a1f0aa12-0002c18c"
+      ],
+      "Id": "4c7503a6ad604a4db9444b59a943bf09",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "5df6072fd8124229ab07281c3e5641ec",
+          "Name": "Elements",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
     }
   ],
   "Connectors": [
@@ -1365,13 +1340,8 @@
     },
     {
       "Start": "22e52bb6e4884e4a82ea465ab1f17499",
-      "End": "02194c3bbfc1480881ee2f27d650cf32",
-      "Id": "1fd1d9c2c12446f08e9be1d270ae5ebd"
-    },
-    {
-      "Start": "7c247abe85894154ab884b602ed26cc7",
       "End": "d23300d97a534c3d93099792b4d5df0a",
-      "Id": "f8546fc6815d43038fa881a65977ad43"
+      "Id": "cd744f5ece284b9e8daeb61f627a076a"
     },
     {
       "Start": "b4b7e3c3380a442b95bee0599463e687",
@@ -1407,16 +1377,6 @@
       "Start": "46418646444f431db1819b85c520bf52",
       "End": "ca8643a2b1734fa6a4e9d0e9402b9f9f",
       "Id": "506902cb1474416cbac6da3f64723088"
-    },
-    {
-      "Start": "b50d2b793bc44e5eafe549d396234b2d",
-      "End": "1054d2a465154247aac5d03de0a39cee",
-      "Id": "48fb6cc45c974a9ea50bb39357abbef3"
-    },
-    {
-      "Start": "c9d8690fabfe4ce59ad2c77eff32534c",
-      "End": "8e8f1492d7194ba9a2b87e83ab903ee3",
-      "Id": "fb38ce1988244dd39a4b3b7fb9ecb94b"
     },
     {
       "Start": "98bd75239f5b4e7a8bd472b0f5f98783",
@@ -1487,11 +1447,15 @@
       "Start": "1dd0266939cd4cef81f870e81681aba1",
       "End": "a67498af37804a9a90e45e274112f6d8",
       "Id": "0293c670533d477989b20492e673b5a3"
+    },
+    {
+      "Start": "5df6072fd8124229ab07281c3e5641ec",
+      "End": "1054d2a465154247aac5d03de0a39cee",
+      "Id": "4e82d723feca41e5a7d007832e314d08"
     }
   ],
   "Dependencies": [
     "58849545-7510-4baf-99da-98c0b1e184fd",
-    "9dba20d5-ee3a-4fad-ae88-9b859fff9cb7",
     "ecce77dc-1290-438e-a056-970b256fd553"
   ],
   "NodeLibraryDependencies": [
@@ -1504,15 +1468,6 @@
       ]
     },
     {
-      "Name": "Rhythm",
-      "Version": "2020.2.13",
-      "ReferenceType": "Package",
-      "Nodes": [
-        "d67d01114d3342bc960da62f92ee7087",
-        "954f8013163c4f4087ff51a8c9b0cae3"
-      ]
-    },
-    {
       "Name": "Clockwork for Dynamo 2.x",
       "Version": "2.3.0",
       "ReferenceType": "Package",
@@ -1520,6 +1475,22 @@
         "57baf0e95a604d5289bd41db1d530601",
         "09a586bce9844fca8b64337001c0c987",
         "14c5e8854d6f4f0a97bee87bcfa0fd01"
+      ]
+    },
+    {
+      "Name": "Rhythm",
+      "Version": "2020.2.13",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "954f8013163c4f4087ff51a8c9b0cae3"
+      ]
+    },
+    {
+      "Name": "GenerativeDesign",
+      "Version": "1.0.1",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "4c7503a6ad604a4db9444b59a943bf09"
       ]
     }
   ],
@@ -1718,26 +1689,6 @@
       },
       {
         "ShowGeometry": true,
-        "Name": "Isolated Pick Model Elements",
-        "Id": "d67d01114d3342bc960da62f92ee7087",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": -349.91021075302956,
-        "Y": 388.25100263369791
-      },
-      {
-        "ShowGeometry": true,
-        "Name": "Code Block",
-        "Id": "1baaf968ed8844969ca9135781660626",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": -512.87467066245324,
-        "Y": 415.60236338605307
-      },
-      {
-        "ShowGeometry": true,
         "Name": "Passthrough",
         "Id": "57baf0e95a604d5289bd41db1d530601",
         "IsSetAsInput": false,
@@ -1865,6 +1816,16 @@
         "Excluded": false,
         "X": 2606.0542839323816,
         "Y": 1857.7380256763424
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Drag Select Family Instances",
+        "Id": "4c7503a6ad604a4db9444b59a943bf09",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -418.07833920265455,
+        "Y": 347.82406481986084
       }
     ],
     "Annotations": [
@@ -1953,23 +1914,6 @@
         "InitialHeight": 145.0,
         "TextblockHeight": 144.0,
         "Background": "#FF87CEFA"
-      },
-      {
-        "Id": "2272340fb7374999a2b81009a2b6f050",
-        "Title": "Only pick furniture",
-        "Nodes": [
-          "d67d01114d3342bc960da62f92ee7087",
-          "1baaf968ed8844969ca9135781660626"
-        ],
-        "Left": -522.87467066245324,
-        "Top": 349.25100263369791,
-        "Width": 409.96445990942368,
-        "Height": 159.35136075235516,
-        "FontSize": 24.0,
-        "InitialTop": 388.25100263369791,
-        "InitialHeight": 172.35136075235516,
-        "TextblockHeight": 29.0,
-        "Background": "#FFB0C4DE"
       },
       {
         "Id": "62dd0e2d567543f8b7cc2c9b56ec9eca",
@@ -2081,8 +2025,8 @@
         "Background": "#FFB5B5B5"
       }
     ],
-    "X": 373.94051128868597,
-    "Y": -146.14787463006644,
-    "Zoom": 0.56693891626237
+    "X": -146.576986208388,
+    "Y": 115.1839431526175,
+    "Zoom": 0.34102556456127009
   }
 }
