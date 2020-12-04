@@ -19,3 +19,5 @@ This repo hosts all the random stuff I work on from time to time.
   - Every wanted to create an image out of 10,000 Revit doors? Well, here it is.
 * [PathOfTravel](https://github.com/johnpierson/RandomGraphs/tree/master/modules/PathOfTravel)
   - Where is the nearest toilet?
+* [DataVis](https://github.com/johnpierson/RandomGraphs/tree/master/modules/DataViz)
+  - Count Revit view activations through Journal Files.
