@@ -15,6 +15,6 @@ Data visualization is fun too. <i> yes charts make stuff run faster, and jump hi
 
 ## Graphs
 This section contains data viz samples.
-* [View Activation Counts](https://github.com/johnpierson/RandomGraphs/blob/master/DataViz/ViewActivationsThroughJournals/viewActivationCount.dyn)
+* [View Activation Counts](https://github.com/johnpierson/RandomGraphs/blob/master/modules/DataViz/ViewActivationsThroughJournals/viewActivationCount.dyn)
   - Idea came from a slack post for PDXRug and journal files were mentioned.
   - Uses [Journalysis](https://github.com/andydandy74/Journalysis) and [Node Model Charts](https://github.com/alfarok/NodeModelCharts).
