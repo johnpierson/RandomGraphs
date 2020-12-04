@@ -3,14 +3,16 @@
   <img src="https://github.com/johnpierson/RandomGraphs/blob/master/resources/dynamoGraphsCrap.png" alt="Workflows" width="400">
 </h1>
 
+<p align="center">
+My Dynamo graphs are:  <b>C</b>lean <b>R</b>eliable <b>A</b>nnotated <b>P</b>urposeful
+</p>
+
 <h2 align="center">a place for my random workflows I share from time to time.</h2>
 <p align="center">
   <a href="#description">overview</a> •
   <a href="#modules">modules</a> •
 </p>
-<p align="center">
-My Dynamo graphs are:  <b>C</b>lean <b>R</b>eliable <b>A</b>nnotated <b>P</b>urposeful
-</p>
+
 
 ## Description
 This repo hosts all the random stuff I work on from time to time. _Note: These files are provided without warranty. Please mind the license [below](#license)._
