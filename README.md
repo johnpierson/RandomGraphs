@@ -9,8 +9,9 @@
   <a href="#modules">modules</a> •
 </p>
 
+
 ## Description
-This repo hosts all the random stuff I work on from time to time.
+This repo hosts all the random stuff I work on from time to time. _Note: These files are provided without warranty. Please mind the license [below](#license)._
 
  _If you feel so inclined, here is a method to donate to this open source project_
 
@@ -25,3 +26,7 @@ This repo hosts all the random stuff I work on from time to time.
   - Where is the nearest toilet?
 * [DataViz](https://github.com/johnpierson/RandomGraphs/tree/master/modules/DataViz)
   - Count Revit view activations through Journal Files.
+
+## License 
+[![GitHub license](https://img.shields.io/github/license/johnpierson/RhythmForDynamo)](https://github.com/johnpierson/RhythmForDynamo/blob/master/LICENSE)
+BSD 3 clause via [TLDR Legal](https://tldrlegal.com/license/bsd-3-clause-license-(revised))
