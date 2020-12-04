@@ -8,7 +8,7 @@
   <a href="#description">overview</a> •
   <a href="#modules">modules</a> •
 </p>
-
+My Dynamo graphs are
 **C**lean 
 **R**eliable 
 **A**nnotated 
