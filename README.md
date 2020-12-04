@@ -9,6 +9,10 @@
   <a href="#modules">modules</a> •
 </p>
 
+**C**lean 
+**R**eliable 
+**A**nnotated 
+**P**urposeful
 
 ## Description
 This repo hosts all the random stuff I work on from time to time. _Note: These files are provided without warranty. Please mind the license [below](#license)._
