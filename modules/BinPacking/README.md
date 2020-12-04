@@ -17,3 +17,5 @@ Bin packing has caught quite a bit of traction and is very doable with awesome o
 This section contains bin packing messes.
 * [Kicked Out of the Sample Model]()
   - What if you needed to calculate how many vans to move out of the sample model? Well don't worry I figured it out for you.
+  <br>
+  <img src=".\KickedOutOfSampleModel\kickedOutOfSampleModel.jpg" alt="Bin Packing" width="400">
