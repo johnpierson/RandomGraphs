@@ -8,13 +8,11 @@
   <a href="#description">overview</a> •
   <a href="#modules">modules</a> •
 </p>
-My Dynamo graphs are
-
-**C**lean 
-**R**eliable 
-**A**nnotated 
-**P**urposeful
-
+<p align="center">
+My Dynamo graphs are:
+  
+<b>C</b>lean <b>R</b>eliable <b>A</b>nnotated <b>P</b>urposeful
+</p>
 ## Description
 This repo hosts all the random stuff I work on from time to time. _Note: These files are provided without warranty. Please mind the license [below](#license)._
 
