@@ -1,0 +1,347 @@
+{
+  "Uuid": "1864dbb9-26d5-48f8-a00e-e63857eba326",
+  "IsCustomNode": false,
+  "Description": null,
+  "Name": "LowerLeftCornerGroup",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Rhythm.Revit.Elements.Group.ByElementsAndOrigin@Revit.Elements.Element[],string,Autodesk.DesignScript.Geometry.Point",
+      "Id": "38258790ed2745bbb23d7f90d0c33444",
+      "Inputs": [
+        {
+          "Id": "b2716be1788341da87e8254ce1915004",
+          "Name": "elements",
+          "Description": "The elements to group\n\nElement[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2a6102e29f504a05950556672ac3a60d",
+          "Name": "name",
+          "Description": "Optional Name\n\nstring\nDefault value : Rhythm.Revit.Elements.Group.GetNull()",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0ef64cf8542d4695866ac3f4fb1241f0",
+          "Name": "origin",
+          "Description": "Optional origin. (Note: This node will fix whatever Z Value you input to match the group's Z value)\n\nPoint\nDefault value : Rhythm.Revit.Elements.Group.GetNull()",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "76a06deab71146259a3b8b4cd2d3a12c",
+          "Name": "newGroup",
+          "Description": "The new group",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "This node is a pretty neat group creator, that allows for you to pick an origin at creation time.\n\nGroup.ByElementsAndOrigin (elements: Element[], name: string = Rhythm.Revit.Elements.Group.GetNull(), origin: Point = Rhythm.Revit.Elements.Group.GetNull()): Element"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementsSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "5a25238e-98a1-428c-9a8e-5a536152ce6b-0006961f",
+        "5a25238e-98a1-428c-9a8e-5a536152ce6b-0006962e",
+        "5a25238e-98a1-428c-9a8e-5a536152ce6b-00069631",
+        "5a25238e-98a1-428c-9a8e-5a536152ce6b-00069634",
+        "5a25238e-98a1-428c-9a8e-5a536152ce6b-00069637",
+        "5a25238e-98a1-428c-9a8e-5a536152ce6b-0006963a",
+        "5a25238e-98a1-428c-9a8e-5a536152ce6b-0006963d"
+      ],
+      "Id": "d7415fb3b47d4922bd80ec367f6edf9f",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "a1cb1e6abb5446d584b543f9077dcc1a",
+          "Name": "Elements",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.BoundingBox",
+      "Id": "28e9c3f2fbf1444b8c64977e86797ae8",
+      "Inputs": [
+        {
+          "Id": "28b54ec12f7f4b639c3b4c5f81927a94",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "15f26c3defe847d5b8463633674e23d1",
+          "Name": "BoundingBox",
+          "Description": "BoundingBox",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get an Axis-aligned BoundingBox of the Element\n\nElement.BoundingBox: BoundingBox"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.BoundingBox.ToCuboid",
+      "Id": "3ee991461cf94d2c99efc3a6f9aead2f",
+      "Inputs": [
+        {
+          "Id": "9e358f66e52841c689396912a2b0acd0",
+          "Name": "boundingBox",
+          "Description": "Autodesk.DesignScript.Geometry.BoundingBox",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "161f6a70bd314ba380e0ba72beba3434",
+          "Name": "Cuboid",
+          "Description": "A Cuboid representation of the BoundingBox",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the BoundingBox as a Solid Cuboid\n\nBoundingBox.ToCuboid ( ): Cuboid"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.BoundingBox.ByGeometry@Autodesk.DesignScript.Geometry.Geometry[]",
+      "Id": "db811f85433345ef9c34af202710519b",
+      "Inputs": [
+        {
+          "Id": "cd9db44782ec48fbbf70d0f30923f3a5",
+          "Name": "geom",
+          "Description": "Geometry[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "6522fd6cb01d4a3985aba4ad3981b201",
+          "Name": "BoundingBox",
+          "Description": "BoundingBox",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create an axis-aligned BoundingBox around input Geometry.\n\nBoundingBox.ByGeometry (geom: Geometry[]): BoundingBox"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.BoundingBox.MinPoint",
+      "Id": "2d6aaba6361c41539c5fb541749e06a3",
+      "Inputs": [
+        {
+          "Id": "16dcbdfd2df94e2abf5e19d33761609b",
+          "Name": "boundingBox",
+          "Description": "Autodesk.DesignScript.Geometry.BoundingBox",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "981da5f22b744e46ab47fb5326dcd6b7",
+          "Name": "Point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The minimum point\n\nBoundingBox.MinPoint: Point"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "a1cb1e6abb5446d584b543f9077dcc1a",
+      "End": "28b54ec12f7f4b639c3b4c5f81927a94",
+      "Id": "d55e8a0fee1a4b9eb5c25f168adf4840"
+    },
+    {
+      "Start": "a1cb1e6abb5446d584b543f9077dcc1a",
+      "End": "b2716be1788341da87e8254ce1915004",
+      "Id": "39d487f7bf28487fbcb92ccfc6737449"
+    },
+    {
+      "Start": "15f26c3defe847d5b8463633674e23d1",
+      "End": "9e358f66e52841c689396912a2b0acd0",
+      "Id": "567cc734994d46ea89245a55e48b5b7b"
+    },
+    {
+      "Start": "161f6a70bd314ba380e0ba72beba3434",
+      "End": "cd9db44782ec48fbbf70d0f30923f3a5",
+      "Id": "878e0b8c9e9347ca8551af08cb39016a"
+    },
+    {
+      "Start": "6522fd6cb01d4a3985aba4ad3981b201",
+      "End": "16dcbdfd2df94e2abf5e19d33761609b",
+      "Id": "d2bc054f559a4c539a20d4e09c5fa6f8"
+    },
+    {
+      "Start": "981da5f22b744e46ab47fb5326dcd6b7",
+      "End": "0ef64cf8542d4695866ac3f4fb1241f0",
+      "Id": "76d788e5a94b4a47839960d0a5214c55"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "Rhythm",
+      "Version": "2021.1.1",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "38258790ed2745bbb23d7f90d0c33444"
+      ]
+    }
+  ],
+  "Bindings": [
+    {
+      "NodeId": "38258790-ed27-45bb-b23d-7f90d0c33444",
+      "Binding": {
+        "ByElementsAndOrigin_InClassDecl-1_InFunctionScope-1_Instance1_38258790-ed27-45bb-b23d-7f90d0c33444": "PFNPQVAtRU5WOkVudmVsb3BlIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiIHhtbG5zOlNPQVAtRU5DPSJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy9zb2FwL2VuY29kaW5nLyIgeG1sbnM6U09BUC1FTlY9Imh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3NvYXAvZW52ZWxvcGUvIiB4bWxuczpjbHI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vc29hcC9lbmNvZGluZy9jbHIvMS4wIiBTT0FQLUVOVjplbmNvZGluZ1N0eWxlPSJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy9zb2FwL2VuY29kaW5nLyI+DQo8U09BUC1FTlY6Qm9keT4NCjxhMTpDYWxsU2l0ZV94MDAyQl9UcmFjZVNlcmlhbGlzZXJIZWxwZXIgaWQ9InJlZi0xIiB4bWxuczphMT0iaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS9jbHIvbnNhc3NlbS9Qcm90b0NvcmUvUHJvdG9Db3JlJTJDJTIwVmVyc2lvbiUzRDIuNi4xLjg3ODYlMkMlMjBDdWx0dXJlJTNEbmV1dHJhbCUyQyUyMFB1YmxpY0tleVRva2VuJTNEbnVsbCI+DQo8TnVtYmVyT2ZFbGVtZW50cz4xPC9OdW1iZXJPZkVsZW1lbnRzPg0KPEJhc2UtMF9IYXNEYXRhPnRydWU8L0Jhc2UtMF9IYXNEYXRhPg0KPEJhc2UtMF9EYXRhIGlkPSJyZWYtMyI+UEZOUFFWQXRSVTVXT2tWdWRtVnNiM0JsSUhodGJHNXpPbmh6YVQwaWFIUjBjRG92TDNkM2R5NTNNeTV2Y21jdk1qQXdNUzlZVFV4VFkyaGxiV0V0YVc1emRHRnVZMlVpSUhodGJHNXpPbmh6WkQwaWFIUjBjRG92TDNkM2R5NTNNeTV2Y21jdk1qQXdNUzlZVFV4VFkyaGxiV0VpSUhodGJHNXpPbE5QUVZBdFJVNURQU0pvZEhSd09pOHZjMk5vWlcxaGN5NTRiV3h6YjJGd0xtOXlaeTl6YjJGd0wyVnVZMjlrYVc1bkx5SWdlRzFzYm5NNlUwOUJVQzFGVGxZOUltaDBkSEE2THk5elkyaGxiV0Z6TG5odGJITnZZWEF1YjNKbkwzTnZZWEF2Wlc1MlpXeHZjR1V2SWlCNGJXeHVjenBqYkhJOUltaDBkSEE2THk5elkyaGxiV0Z6TG0xcFkzSnZjMjltZEM1amIyMHZjMjloY0M5bGJtTnZaR2x1Wnk5amJISXZNUzR3SWlCVFQwRlFMVVZPVmpwbGJtTnZaR2x1WjFOMGVXeGxQU0pvZEhSd09pOHZjMk5vWlcxaGN5NTRiV3h6YjJGd0xtOXlaeTl6YjJGd0wyVnVZMjlrYVc1bkx5SStEUW84VTA5QlVDMUZUbFk2UW05a2VUNE5DanhoTVRwVFpYSnBZV3hwZW1GaWJHVkpaQ0JwWkQwaWNtVm1MVEVpSUhodGJHNXpPbUV4UFNKb2RIUndPaTh2YzJOb1pXMWhjeTV0YVdOeWIzTnZablF1WTI5dEwyTnNjaTl1YzJGemMyVnRMMUpsZG1sMFUyVnlkbWxqWlhNdVVHVnljMmx6ZEdWdVkyVXZVbVYyYVhSVFpYSjJhV05sY3lVeVF5VXlNRlpsY25OcGIyNGxNMFF5TGpZdU1TNDRPRFV3SlRKREpUSXdRM1ZzZEhWeVpTVXpSRzVsZFhSeVlXd2xNa01sTWpCUWRXSnNhV05MWlhsVWIydGxiaVV6Ukc1MWJHd2lQZzBLUEhOMGNtbHVaMGxFSUdsa1BTSnlaV1l0TXlJK05XRXlOVEl6T0dVdE9UaGhNUzAwTWpoakxUbGhPR1V0TldFMU16WXhOVEpqWlRaaUxUQXdNRFk1TmpZM1BDOXpkSEpwYm1kSlJENE5DanhwYm5SSlJENDBNekUzTVRrOEwybHVkRWxFUGcwS1BDOWhNVHBUWlhKcFlXeHBlbUZpYkdWSlpENE5Dand2VTA5QlVDMUZUbFk2UW05a2VUNE5Dand2VTA5QlVDMUZUbFk2Ulc1MlpXeHZjR1UrRFFvPTwvQmFzZS0wX0RhdGE+DQo8QmFzZS0wX0hhc05lc3RlZERhdGE+ZmFsc2U8L0Jhc2UtMF9IYXNOZXN0ZWREYXRhPg0KPC9hMTpDYWxsU2l0ZV94MDAyQl9UcmFjZVNlcmlhbGlzZXJIZWxwZXI+DQo8L1NPQVAtRU5WOkJvZHk+DQo8L1NPQVAtRU5WOkVudmVsb3BlPg0K"
+      }
+    }
+  ],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 10000.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.6.1.8786",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": 16089.688749674502,
+      "EyeY": 9741.93999733726,
+      "EyeZ": 3266.9882374607964,
+      "LookX": 941.64914095049789,
+      "LookY": -9741.93999733726,
+      "LookZ": -3243.4237080418511,
+      "UpX": 0.23772709868337516,
+      "UpY": 0.52249856471594947,
+      "UpZ": -0.8188290886512033
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "ʳʰʸᵗʰᵐ|Group.ByElementsAndOrigin",
+        "Id": "38258790ed2745bbb23d7f90d0c33444",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 432.0,
+        "Y": 218.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Select Model Elements",
+        "Id": "d7415fb3b47d4922bd80ec367f6edf9f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 66.0,
+        "Y": 51.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Element.BoundingBox",
+        "Id": "28e9c3f2fbf1444b8c64977e86797ae8",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 66.0,
+        "Y": 208.5
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "BoundingBox.ToCuboid",
+        "Id": "3ee991461cf94d2c99efc3a6f9aead2f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 66.0,
+        "Y": 307.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "BoundingBox.ByGeometry",
+        "Id": "db811f85433345ef9c34af202710519b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 66.0,
+        "Y": 405.5
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "BoundingBox.MinPoint",
+        "Id": "2d6aaba6361c41539c5fb541749e06a3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 66.0,
+        "Y": 504.0
+      }
+    ],
+    "Annotations": [],
+    "X": 24.197499999999991,
+    "Y": 12.552500000000009,
+    "Zoom": 0.8425
+  }
+}

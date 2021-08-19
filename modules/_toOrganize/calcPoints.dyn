@@ -1,0 +1,323 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "calcPoints",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "import clr\r\nclr.AddReference('RevitAPI')\r\nfrom Autodesk.Revit.DB import *\r\nfrom System.Collections.Generic import *\r\n\r\nclr.AddReference(\"RevitServices\")\r\nimport RevitServices\r\nfrom RevitServices.Persistence import DocumentManager\r\nfrom RevitServices.Transactions import TransactionManager\r\n\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\napp = DocumentManager.Instance.CurrentUIApplication.Application\r\n\r\ndef TurnOnRoomCalcPoint(path):\r\n\tdoc = app.OpenDocumentFile(path)\t\t\r\n\tfam = doc.OwnerFamily\r\n\tTransactionManager.Instance.ForceCloseTransaction()\r\n\tt = Transaction(doc,\"Toggling Room Calc\")\r\n\tt.Start()\r\n\tfam.get_Parameter(BuiltInParameter.ROOM_CALCULATION_POINT).Set(1)\r\n\tt.Commit()\r\n\ttry:\r\n\t\tdoc.Close(True)\r\n\t\treturn path + \"| Success\";\r\n\texcept:\r\n\t\tdoc.Close(False)\r\n\t\treturn path + \"| Fail\"\r\n\r\npaths = UnwrapElement(IN[0])\r\n\r\nif isinstance(IN[0], list): OUT = [TurnOnRoomCalcPoint(x) for x in paths]\r\nelse: OUT = TurnOnRoomCalcPoint(paths)",
+      "VariableInputPorts": true,
+      "Id": "b68d97c5e707469ab71951376b339c92",
+      "Inputs": [
+        {
+          "Id": "0f1acc680eb74d69b0132b8f511a3f23",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "0273156dca674a5d80625a8087cd8eb8",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded IronPython script."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.IO.FileSystem.GetDirectoryContents@var,string,bool",
+      "Id": "a5be47793b7748be8d7277d20c4ea05f",
+      "Inputs": [
+        {
+          "Id": "b70bba5d1b9842b793cf6daf0a61f25a",
+          "Name": "directory",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "5f71b3658aef4582b100bc09e6bcbc1e",
+          "Name": "searchString",
+          "Description": "string\nDefault value : \"*.*\"",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c5414fe2bca04666baf4fd165cfb9012",
+          "Name": "includeSubdirectories",
+          "Description": "bool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "75a826a1111f49129a5f75c9c7af1015",
+          "Name": "files",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "6c952692352c42a1a33131e1ed5be89c",
+          "Name": "directories",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "FileSystem.GetDirectoryContents (directory: var, searchString: string = \"*.*\", includeSubdirectories: bool = false): var[]..[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "C:\\Users\\johnpierson\\Desktop\\SampleFamilies\\13",
+      "Id": "5875e3a633cd460086e353e254833e36",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "8c291bbf73e84d89b97362d989fafeec",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.DirectoryObject, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "b9679ac17f0f4e22b332f64a3b8b504c",
+      "Inputs": [
+        {
+          "Id": "003a53da000b4731bb036000f0e70b01",
+          "Name": "path",
+          "Description": "Path to the directory.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "0f129d96e616413b9640abe43057428b",
+          "Name": "directory",
+          "Description": "Directory object.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a directory object from a path"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\"*.rfa\";",
+      "Id": "b1c241db3799453db68064cc8325ed71",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "c4bd4c7ef6074d0db009c4dbf090cba3",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "75a826a1111f49129a5f75c9c7af1015",
+      "End": "0f1acc680eb74d69b0132b8f511a3f23",
+      "Id": "5d1082ff915141148a03694dc21ddc89"
+    },
+    {
+      "Start": "8c291bbf73e84d89b97362d989fafeec",
+      "End": "003a53da000b4731bb036000f0e70b01",
+      "Id": "d901c9afbf0a4651bc83bc58831535d4"
+    },
+    {
+      "Start": "0f129d96e616413b9640abe43057428b",
+      "End": "b70bba5d1b9842b793cf6daf0a61f25a",
+      "Id": "c730fae05c3a4f26b231decd4d58ca1b"
+    },
+    {
+      "Start": "c4bd4c7ef6074d0db009c4dbf090cba3",
+      "End": "5f71b3658aef4582b100bc09e6bcbc1e",
+      "Id": "d6d285eeacd0495faa2424b04582a5d6"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.6.1.8786",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "Id": "b68d97c5e707469ab71951376b339c92",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": ".py - openFamilyInBackground-ToggleCalculationPoint",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 496.6317005535459,
+        "Y": 48.78416460380447
+      },
+      {
+        "Id": "a5be47793b7748be8d7277d20c4ea05f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "FileSystem.GetDirectoryContents",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 103.19011403781087,
+        "Y": 45.0
+      },
+      {
+        "Id": "5875e3a633cd460086e353e254833e36",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Directory of Families",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -320.79795733302126,
+        "Y": 45.0
+      },
+      {
+        "Id": "b9679ac17f0f4e22b332f64a3b8b504c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Directory From Path",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -81.0,
+        "Y": 45.0
+      },
+      {
+        "Id": "b1c241db3799453db68064cc8325ed71",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": -31.0,
+        "Y": 132.0
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "dec4f31f845b4e009259f3c0ea141c0d",
+        "Title": "Get families from directory",
+        "Nodes": [
+          "a5be47793b7748be8d7277d20c4ea05f",
+          "5875e3a633cd460086e353e254833e36",
+          "b9679ac17f0f4e22b332f64a3b8b504c",
+          "b1c241db3799453db68064cc8325ed71"
+        ],
+        "Left": -330.79795733302126,
+        "Top": 6.0,
+        "Width": 750.98807137083213,
+        "Height": 219.0,
+        "FontSize": 24.0,
+        "InitialTop": 45.0,
+        "InitialHeight": 232.0,
+        "TextblockHeight": 29.0,
+        "Background": "#FFB0C4DE"
+      },
+      {
+        "Id": "3c326fbb1c514f689429870f502b6453",
+        "Title": "License",
+        "Nodes": [
+          "ee65dcf6e53e4645a0e97aa8b6ebb9d9"
+        ],
+        "Left": -666.55599276904536,
+        "Top": 9.7090122406900718,
+        "Width": 320.0,
+        "Height": 314.0,
+        "FontSize": 24.0,
+        "InitialTop": 48.709012240690072,
+        "InitialHeight": 140.0,
+        "TextblockHeight": 29.0,
+        "Background": "#FF87CEFA"
+      },
+      {
+        "Id": "ee65dcf6e53e4645a0e97aa8b6ebb9d9",
+        "Title": "GNU License\r\n\r\nThis program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.\r\n\r\nThis program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.\r\n\r\nYou should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/",
+        "Nodes": [],
+        "Left": -656.55599276904536,
+        "Top": 48.709012240690072,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      }
+    ],
+    "X": 831.7616324397809,
+    "Y": 359.0466491610465,
+    "Zoom": 0.80821986639302934
+  }
+}
