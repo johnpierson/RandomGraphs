@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <img src="https://github.com/johnpierson/RandomGraphs/blob/master/resources/dynamoGraphsCrap.png" alt="Workflows" width="400">
+  <img src="https://github.com/johnpierson/RandomGraphs/blob/master/_resources/dynamoGraphsCrap.png" alt="Workflows" width="400">
 </h1>
 
 <p align="center">
