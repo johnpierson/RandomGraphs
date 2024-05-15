@@ -1,0 +1,205 @@
+{
+  "Uuid": "925c9a8c-e8dc-4ece-8f03-4b32b3d4de1d",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "CreateWPFWindow",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "import clr\t\r\nimport sys\r\nimport System\r\nsys.path.append(r'C:\\Program Files (x86)\\IronPython 2.7\\Lib')\r\nsys.path.append(r'C:\\Program Files (x86)\\IronPython 2.7\\DLLs')\r\n\r\ntry:\r\n\tclr.AddReference(\"IronPython.Wpf\")\r\n\tclr.AddReference('System.Core')\r\n\tclr.AddReference('System.Xml')\r\n\tclr.AddReference('PresentationCore')\r\n\tclr.AddReference('PresentationFramework')\r\n\tclr.AddReferenceByPartialName(\"WindowsBase\")\r\nexcept IOError:\r\n\traise\r\n\t\r\nfrom System.IO import StringReader\r\nfrom System.Windows.Markup import XamlReader, XamlWriter\r\nfrom System.Windows import Window, Application\r\n\r\ntry:\r\n\timport wpf\r\n\timport time\r\nexcept ImportError:\r\n\traise\r\nclass CreateWindow(Window):\r\n\tLAYOUT = '''\r\n\t<Window \r\n             xmlns=\"http://schemas.microsoft.com/winfx/2006/xaml/presentation\"\r\n             xmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\"\r\n             xmlns:mc=\"http://schemas.openxmlformats.org/markup-compatibility/2006\" \r\n             xmlns:d=\"http://schemas.microsoft.com/expression/blend/2008\" \r\n             mc:Ignorable=\"d\" \r\n             Height=\"140\" Width=\"400\"\r\n             WindowStartupLocation=\"CenterScreen\">\r\n    <Grid>\r\n        <Grid.RowDefinitions>\r\n            <RowDefinition Height=\"*\"/>\r\n            <RowDefinition Height=\"36\"/>\r\n        </Grid.RowDefinitions>\r\n\r\n<TextBox Name=\"MessageBox\" Grid.Row=\"0\" Margin=\"8\" Text=\"A\" TextWrapping=\"Wrap\" Foreground=\"Red\" BorderBrush=\"{x:Null}\" IsHitTestVisible=\"False\"/>\r\n\r\n<!--the buttons section-->\r\n        <Grid Grid.Row=\"1\" Background=\"LightGray\">\r\n            <Grid.ColumnDefinitions>\r\n                <ColumnDefinition Width=\"*\"/>\r\n                <ColumnDefinition Width=\"*\"/>\r\n                <ColumnDefinition Width=\"*\"/>\r\n            </Grid.ColumnDefinitions>\r\n            <Button Grid.Column=\"2\" Content=\"Close\" Margin=\"8 4\" IsCancel=\"True\"/>\r\n        </Grid>\r\n        \r\n    </Grid>\r\n</Window>\r\n\t'''\r\n\t\r\n\tdef __init__(self):\r\n\t\tself.ui = wpf.LoadComponent(self, StringReader(CreateWindow.LAYOUT))\r\n\t\tself.Title = IN[0]\r\n\t\tself.MessageBox.Text = IN[1]\r\n\t\t\t\t\r\npb = CreateWindow()\r\npb.ShowDialog()\r\n\r\nOUT = pb.MessageBox.Text",
+      "Engine": "IronPython2",
+      "EngineName": "IronPython2",
+      "VariableInputPorts": true,
+      "Id": "3aae696dbc47433b93a5e0687a56750c",
+      "Inputs": [
+        {
+          "Id": "477c0e464b3747449fa5a3209deea8ab",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7f877daf38834e9ea1c9f0159402c63f",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "531ddb1f31eb45e0884fdb43b58197f3",
+          "Name": "IN[2]",
+          "Description": "Input #2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "47b383ebf5584fbcbba605d655f5163a",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded Python script."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\"Hello there!\";",
+      "Id": "4c440fab15da4a328bba5741aae16870",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "0aac95c14f4643cc9b1145b0104992c6",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\"Test Window\";",
+      "Id": "e900965764b64ce98dd30922b91fe8fd",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "852f4a2fd00d4349872b17f652999a98",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "0aac95c14f4643cc9b1145b0104992c6",
+      "End": "7f877daf38834e9ea1c9f0159402c63f",
+      "Id": "11f118d19c994e15b08484b37ae5f3b8",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "852f4a2fd00d4349872b17f652999a98",
+      "End": "477c0e464b3747449fa5a3209deea8ab",
+      "Id": "20d82a14acd2499bbe1d82d095f4cf4e",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.12",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {
+        "DefaultStudySettings": ""
+      }
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Python Script",
+        "ShowGeometry": true,
+        "Id": "3aae696dbc47433b93a5e0687a56750c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 732.0,
+        "Y": 304.8
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "4c440fab15da4a328bba5741aae16870",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 369.2000000000001,
+        "Y": 405.59999999999997
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "e900965764b64ce98dd30922b91fe8fd",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 358.80000000000024,
+        "Y": 209.59999999999997
+      }
+    ],
+    "Annotations": [],
+    "X": 0.0,
+    "Y": 0.0,
+    "Zoom": 1.0
+  }
+}
